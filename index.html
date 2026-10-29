@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README-doc</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+  <style type="text/css">:root {
+--brand: #2b0a8c;
+--accent: #e6007e;
+--ink: #1f2430;
+--muted: #667085;
+--line: #e4e7ec;
+--surface: #f7f7fb;
+}
+* {
+box-sizing: border-box;
+}
+html {
+scroll-behavior: smooth;
+}
+body {
+margin: 0 auto;
+max-width: 1120px;
+padding: 50px;
+color: var(--ink);
+background: #ffffff;
+font-family: "Segoe UI", Arial, sans-serif;
+line-height: 1.65;
+}
+a {
+color: var(--brand);
+}
+a:hover {
+color: var(--accent);
+}
+h1 {
+margin-top: 2.7rem;
+padding-bottom: 0.35rem;
+border-bottom: 2px solid var(--line);
+}
+h2 {
+margin-top: 2.4rem;
+padding-bottom: 0.3rem;
+border-bottom: 1px solid var(--line);
+}
+h3,
+h4,
+h5,
+h6 {
+margin-top: 2rem;
+}
+img {
+display: block;
+max-width: 100%;
+height: auto;
+margin: 1rem auto 0.35rem;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 1.25rem 0;
+}
+th,
+td {
+border: 1px solid var(--line);
+padding: 0.7rem;
+vertical-align: top;
+}
+th {
+background: var(--surface);
+text-align: left;
+}
+blockquote {
+margin: 1.2rem 0;
+padding: 0.7rem 1rem;
+border-left: 4px solid var(--brand);
+background: var(--surface);
+}
+code {
+font-family: Consolas, "Courier New", monospace;
+}
+pre {
+overflow-x: auto;
+padding: 1rem;
+border-radius: 8px;
+background: var(--surface);
+}
+
+body > h1:first-of-type {
+margin: -50px calc(50% - 50vw) 3rem;
+padding: 3.5rem max(50px, calc((100vw - 1120px) / 2));
+border: 0;
+background: linear-gradient(135deg, #250777, #3e16a3);
+color: #ffffff;
+font-size: clamp(2rem, 5vw, 3.5rem);
+line-height: 1.1;
+}
+@media (max-width: 640px) {
+body {
+padding: 20px;
+}
+body > h1:first-of-type {
+margin-top: -20px;
+padding: 2.5rem 20px;
+}
+}
+</style>
+</head>
+<body>
+<h1 id="doc-software-building-block">DOC Software Building Block</h1>
+<h2 id="overview">Overview</h2>
+<p>This Software Building Block (SBB) demonstrates typical use of the
+Renesas Data Operation Circuit (DOC) HAL APIs. The DOC operation is
+selected in the FSP configurator, and the reference application writes
+predefined data that is intended to trigger the selected DOC event.</p>
+<p>This document covers only:</p>
+<ul>
+<li>FPB-RA2E3</li>
+<li>FPB-RA4E2</li>
+<li>FPB-RA6E2</li>
+<li>FPB-RA8E1</li>
+</ul>
+<p>All four boards are explicitly listed as supported in the supplied
+<code>readme.txt</code>.</p>
+<p>The supported demonstration events are:</p>
+<ul>
+<li>Comparison Match</li>
+<li>Comparison Mismatch</li>
+<li>Addition Overflow</li>
+<li>Subtraction Underflow</li>
+</ul>
+<p>When the configured event occurs, the DOC callback sets an event
+flag. The reference application reports success on the serial terminal
+and turns on the first BSP-defined LED. If the event is not detected, it
+reports failure and leaves the LED off.</p>
+<h2 id="what-use-case-does-this-sbb-demonstrate">What use case does this
+SBB demonstrate?</h2>
+<p>The SBB demonstrates how DOC can detect a configured comparison or
+arithmetic condition in hardware and notify the application through a
+callback.</p>
+<p>The reference flow is:</p>
+<ol type="1">
+<li>Configure one DOC event in the FSP configurator.</li>
+<li>Initialize the UART console.</li>
+<li>Open the generated DOC instance.</li>
+<li>Inspect <code>g_doc_cfg.event</code> to identify the configured
+event.</li>
+<li>Write predefined test data to the DOC data-input register.</li>
+<li>Allow the configured DOC operation to evaluate the data.</li>
+<li>Set <code>g_doc_event_flag</code> from the DOC callback when the
+selected condition occurs.</li>
+<li>Print the result to the terminal.</li>
+<li>Turn on the first BSP-defined LED when the callback event is
+detected.</li>
+<li>Reset the MCU to run the demonstration again.</li>
+</ol>
+<p>The application executes the configured operation once and then
+remains in an infinite loop.</p>
+<h2 id="hardware-requirements">Hardware requirements</h2>
+<ul>
+<li>1 x FPB-RA2E3, FPB-RA4E2, FPB-RA6E2, or FPB-RA8E1</li>
+<li>1 x appropriate USB cable for programming and debugging</li>
+</ul>
+<p>Connect the board USB debug port to the host PC.</p>
+<h3 id="fpb-ra2e3">FPB-RA2E3</h3>
+<p>Close <strong>E25, E28, E46, and E47</strong> to use J-Link On-Board
+VCOM for the UART terminal.</p>
+<h3 id="fpb-ra4e2">FPB-RA4E2</h3>
+<p>The supplied <code>readme.txt</code> lists FPB-RA4E2 as supported but
+does not specify additional board-specific hardware configuration.</p>
+<h3 id="fpb-ra6e2">FPB-RA6E2</h3>
+<p>The supplied <code>readme.txt</code> lists FPB-RA6E2 as supported but
+does not specify additional board-specific hardware configuration.</p>
+<h3 id="fpb-ra8e1">FPB-RA8E1</h3>
+<p>The supplied <code>readme.txt</code> lists FPB-RA8E1 as supported but
+does not specify additional board-specific hardware configuration.</p>
+<h2 id="what-does-the-sbb-core-code-do">What does the SBB core code
+do?</h2>
+<p>The reusable SBB layer is implemented by:</p>
+<ul>
+<li><code>doc_ep.c</code></li>
+<li><code>doc_ep.h</code></li>
+</ul>
+<p>The core provides:</p>
+<ul>
+<li>DOC initialization through the generated FSP configuration.</li>
+<li>A wrapper for writing data to the DOC data-input register.</li>
+<li>DOC cleanup.</li>
+<li>A DOC callback that records event occurrence in
+<code>g_doc_event_flag</code>.</li>
+<li>Predefined input values for the four demonstrated conditions.</li>
+<li>The LED active-level definition used by the reference
+application.</li>
+</ul>
+<p>The core does not select the DOC event at runtime. Event selection is
+taken from the generated <code>g_doc_cfg</code> configuration.</p>
+<h2 id="demoreference-application-versus-reusable-sbb-code">Demo/reference
+application versus reusable SBB code</h2>
+<h3 id="reusable-sbb-code">Reusable SBB code</h3>
+<p><code>doc_ep.c</code> and <code>doc_ep.h</code> form the reusable DOC
+layer. They wrap <code>R_DOC_Open()</code>, <code>R_DOC_Write()</code>,
+and <code>R_DOC_Close()</code>, expose the callback event flag, and
+define the demonstration operands.</p>
+<h3 id="demoreference-application-code">Demo/reference application
+code</h3>
+<p><code>doc_example_app.c</code> and <code>doc_example_app.h</code>
+form the one-shot reference application. They are responsible for:</p>
+<ul>
+<li>UART-console initialization.</li>
+<li>FSP version retrieval and presentation.</li>
+<li>Displaying SBB information.</li>
+<li>Inspecting <code>g_doc_cfg.event</code>.</li>
+<li>Selecting which predefined values are written.</li>
+<li>Printing the selected event.</li>
+<li>Checking <code>g_doc_event_flag</code>.</li>
+<li>Displaying success or failure.</li>
+<li>Turning on the first BSP-defined LED after success.</li>
+<li>Printing the reset instruction.</li>
+<li>Handling errors and entering a breakpoint trap.</li>
+</ul>
+<p>The application entry point is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> doc_example_app_run<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<p>The source identifies it as the single function called from
+<code>hal_entry.c</code>.</p>
+<h2 id="which-public-functions-should-i-look-at-first">Which public
+functions should I look at first?</h2>
+<h3 id="doc_init"><code>doc_init()</code></h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t doc_init<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<p>Opens the generated DOC instance using <code>g_doc_ctrl</code> and
+<code>g_doc_cfg</code>.</p>
+<h3 id="doc_write"><code>doc_write()</code></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t doc_write<span class="op">(</span><span class="dt">uint32_t</span> data<span class="op">);</span></span></code></pre></div>
+<p>Writes data to the DOC data-input register through
+<code>R_DOC_Write()</code>. Comparison operations use one call. Addition
+and subtraction demonstrations use two calls.</p>
+<h3 id="doc_callback"><code>doc_callback()</code></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> doc_callback<span class="op">(</span>doc_callback_args_t <span class="op">*</span> p_args<span class="op">);</span></span></code></pre></div>
+<p>Sets <code>g_doc_event_flag</code> to <code>true</code> when the
+configured DOC callback is invoked. The supplied callback does not
+inspect the callback arguments.</p>
+<h3 id="doc_deinit"><code>doc_deinit()</code></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> doc_deinit<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<p>Closes the DOC instance if it is open.</p>
+<h2 id="what-configuration-assumptions-were-made-for-the-reference-boards">What
+configuration assumptions were made for the reference boards?</h2>
+<h3 id="generated-doc-instance">Generated DOC instance</h3>
+<p>The SBB expects these generated objects:</p>
+<pre class="text"><code>g_doc_ctrl
+g_doc_cfg</code></pre>
+<p>The selected operation is read from:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>g_doc_cfg<span class="op">.</span>event</span></code></pre></div>
+<p>The reference application supports these configured event values:</p>
+<ul>
+<li><code>DOC_EVENT_COMPARISON_MISMATCH</code></li>
+<li><code>DOC_EVENT_COMPARISON_MATCH</code></li>
+<li><code>DOC_EVENT_ADDITION</code></li>
+<li><code>DOC_EVENT_SUBTRACTION</code></li>
+</ul>
+<h3 id="predefined-operation-data">Predefined operation data</h3>
+<p>The supplied header defines these demonstration values:</p>
+<table>
+<thead>
+<tr>
+<th>Demonstration</th>
+<th>Value or values written</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comparison Match</td>
+<td><code>0xA5A5</code></td>
+</tr>
+<tr>
+<td>Comparison Mismatch</td>
+<td><code>0xB5B5</code></td>
+</tr>
+<tr>
+<td>Addition Overflow</td>
+<td><code>0x5A5A</code>, followed by <code>0x0001</code></td>
+</tr>
+<tr>
+<td>Subtraction Underflow</td>
+<td><code>0xA5A4</code>, followed by <code>0x0002</code></td>
+</tr>
+</tbody>
+</table>
+<p>For comparison operations, the comparison reference or other required
+DOC configuration is supplied by the generated <code>g_doc_cfg</code>;
+it is not established by the hand-written wrapper files.</p>
+<h3 id="callback-configuration">Callback configuration</h3>
+<p>The application treats callback invocation as the indication that the
+selected condition occurred. The generated DOC configuration must
+therefore be associated with <code>doc_callback()</code> for the
+demonstrated success path.</p>
+<h3 id="led-configuration">LED configuration</h3>
+<p>For FPB-RA2E3, FPB-RA4E2, FPB-RA6E2, and FPB-RA8E1, none of the
+active-low board conditions in <code>doc_ep.h</code> apply. The source
+therefore defines:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define LED_ON </span><span class="op">(</span><span class="pp">BSP_IO_LEVEL_HIGH</span><span class="op">)</span></span></code></pre></div>
+<p>The application writes this level to:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>g_bsp_leds<span class="op">.</span>p_leds<span class="op">[</span><span class="dv">0</span><span class="op">]</span></span></code></pre></div>
+<p>using <code>R_IOPORT_PinWrite()</code>.</p>
+<h3 id="one-run-execution-model">One-run execution model</h3>
+<p>The application performs the configured operation once. It then
+prints a request to reset the MCU and remains in an infinite loop.</p>
+<h2 id="what-must-i-change-for-my-board-pins-clocks-timing-memory-task-priorities-or-middleware-setup">What
+must I change for my board, pins, clocks, timing, memory, task
+priorities, or middleware setup?</h2>
+<h3 id="doc-event-selection">DOC event selection</h3>
+<p>Select the required event in the FSP-generated DOC configuration. The
+hand-written application does not change the DOC event at runtime.</p>
+<p>If another event value is configured, the current <code>switch</code>
+statement reaches its default branch and performs no demonstration
+write.</p>
+<h3 id="doc-comparisonreference-configuration">DOC comparison/reference
+configuration</h3>
+<p>For comparison operations, keep the generated comparison
+configuration consistent with the predefined match/mismatch values or
+change the demonstration values to suit the configured comparison
+reference.</p>
+<h3 id="callback">Callback</h3>
+<p>Ensure the generated DOC instance uses <code>doc_callback()</code>.
+Without callback invocation, <code>g_doc_event_flag</code> remains false
+and the reference application reports failure.</p>
+<h3 id="led-and-pins">LED and pins</h3>
+<p>The reference application uses the first LED in
+<code>g_bsp_leds</code> and assumes the <code>LED_ON</code> level
+selected by <code>doc_ep.h</code>. If the target LED has a different
+active level or the product does not use a BSP LED, update the
+indication logic accordingly.</p>
+<p>No external DOC signal pin is used by the supplied demonstration. The
+only board-specific hardware setup stated for the requested boards is
+the FPB-RA2E3 VCOM configuration.</p>
+<h3 id="clocks-and-timing">Clocks and timing</h3>
+<p>The supplied files do not describe DOC clock configuration, operation
+latency, or a required software delay. The application checks the
+callback flag immediately after the write sequence. Any changed
+execution model or DOC integration must preserve reliable event
+completion before the result is consumed.</p>
+<h3 id="memory">Memory</h3>
+<p>The hand-written SBB uses a Boolean event flag and predefined
+constants. The supplied files do not provide a complete RAM/ROM
+footprint for the SBB or generated FSP driver.</p>
+<h3 id="task-priorities-and-synchronization">Task priorities and
+synchronization</h3>
+<p>The supplied application does not use an RTOS or define task
+priorities. The callback and foreground application communicate through
+the volatile <code>g_doc_event_flag</code>. An RTOS-based integration
+must define the appropriate synchronization and execution context for
+consuming the DOC event.</p>
+<h3 id="middleware-and-console">Middleware and console</h3>
+<p>The UART console and standard-output messages belong to the reference
+application. The reusable DOC wrapper can be integrated without the
+terminal interface.</p>
+<p>For advanced DOC use with other modules, the supplied README refers
+to Renesas document <strong>R30AN0384</strong>.</p>
+<h2 id="dependencies">Dependencies</h2>
+<h3 id="renesas-fsp-doc-driver">Renesas FSP DOC driver</h3>
+<p>The reusable SBB directly uses:</p>
+<ul>
+<li><code>R_DOC_Open()</code></li>
+<li><code>R_DOC_Write()</code></li>
+<li><code>R_DOC_Close()</code></li>
+</ul>
+<h3 id="generated-fsp-configuration">Generated FSP configuration</h3>
+<p>The source includes <code>hal_data.h</code> and depends on:</p>
+<ul>
+<li><code>g_doc_ctrl</code></li>
+<li><code>g_doc_cfg</code></li>
+<li>the generated DOC callback configuration</li>
+<li><code>g_ioport_ctrl</code></li>
+<li><code>g_bsp_leds</code></li>
+</ul>
+<h3 id="fspbsp-services">FSP/BSP services</h3>
+<p>The reference application uses:</p>
+<ul>
+<li><code>R_FSP_VersionGet()</code></li>
+<li><code>R_IOPORT_PinWrite()</code></li>
+<li><code>__BKPT()</code> for its error trap</li>
+</ul>
+<h3 id="consolereference-application">Console/reference application</h3>
+<p>The demo uses:</p>
+<ul>
+<li><code>console/uart_console.h</code></li>
+<li><code>uart_console_init()</code></li>
+<li><code>uart_console_flush()</code></li>
+<li><code>printf()</code></li>
+</ul>
+<h2 id="serial-terminal-configuration">Serial terminal
+configuration</h2>
+<p>The supplied <code>readme.txt</code> specifies:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Port</td>
+<td>Port provided by J-Link On-Board</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>115200</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>8 bit</td>
+</tr>
+<tr>
+<td>Parity</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Stop bits</td>
+<td>1 bit</td>
+</tr>
+<tr>
+<td>Flow control</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p>For Tera Term:</p>
+<ul>
+<li>Receive newline: <strong>CR</strong></li>
+<li>Transmit newline: <strong>CR</strong></li>
+<li><strong>Local echo</strong> enabled</li>
+</ul>
+<h2 id="what-behavior-and-performance-were-demonstrated-or-measured">What
+behavior and performance were demonstrated or measured?</h2>
+<h3 id="demonstrated-behavior">Demonstrated behavior</h3>
+<p>The supplied SBB and reference application demonstrate:</p>
+<ul>
+<li>Opening a DOC instance.</li>
+<li>Selecting behavior from <code>g_doc_cfg.event</code>.</li>
+<li>Writing one value for comparison operations.</li>
+<li>Writing two values for arithmetic operations.</li>
+<li>Detecting a DOC callback through a volatile flag.</li>
+<li>Reporting operation success or failure on the terminal.</li>
+<li>Turning on the first BSP-defined LED after a detected event.</li>
+<li>Requiring an MCU reset before another run.</li>
+</ul>
+<h3 id="demonstrated-event-cases">Demonstrated event cases</h3>
+<p>The predefined application paths are:</p>
+<ul>
+<li>Comparison Match with <code>0xA5A5</code>.</li>
+<li>Comparison Mismatch with <code>0xB5B5</code>.</li>
+<li>Addition Overflow with <code>0x5A5A</code> then
+<code>0x0001</code>.</li>
+<li>Subtraction Underflow with <code>0xA5A4</code> then
+<code>0x0002</code>.</li>
+</ul>
+<h3 id="performance-measurements">Performance measurements</h3>
+<p>The supplied files do <strong>not</strong> report DOC operation
+latency, event-detection latency, interrupt latency, CPU utilization,
+throughput, or memory footprint.</p>
+<p>The predefined values demonstrate functional event generation; they
+are not performance measurements. This SBB should therefore be treated
+as a functional DOC reference rather than a performance benchmark.</p>
+<h2 id="what-files-are-safe-to-modify-and-what-files-are-generated-preset-or-demo-only">What
+files are safe to modify and what files are generated, preset, or
+demo-only?</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>File</th>
+<th>Classification</th>
+<th>Guidance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>doc_ep.c</code></td>
+<td>Reusable SBB implementation</td>
+<td>Modify when intentionally changing DOC initialization, write,
+callback, event-flag, or cleanup behavior.</td>
+</tr>
+<tr>
+<td><code>doc_ep.h</code></td>
+<td>Reusable SBB public interface and demonstration presets</td>
+<td>Modify carefully when changing public APIs, predefined operation
+values, LED polarity rules, or exposed state.</td>
+</tr>
+<tr>
+<td><code>doc_example_app.c</code></td>
+<td>Demo/reference application</td>
+<td>Appropriate place for changing the selected-value sequencing,
+output, LED indication, reset behavior, and error handling.</td>
+</tr>
+<tr>
+<td><code>doc_example_app.h</code></td>
+<td>Demo/reference application interface</td>
+<td>Contains the application entry point, version, banner, and
+descriptive text.</td>
+</tr>
+<tr>
+<td><code>readme.txt</code></td>
+<td>Existing example documentation</td>
+<td>Source for the supported-board list, FPB-RA2E3 VCOM setup, DOC event
+description, terminal settings, and R30AN0384 reference.</td>
+</tr>
+</tbody>
+</table>
+<p>The SBB includes <code>hal_data.h</code> and relies on generated FSP
+configuration. The supplied files do not enumerate individual generated
+files, so generated configuration should be maintained separately from
+the hand-written SBB and reference-application files.</p>
+<h2 id="what-happens-if-i-modify-the-source-and-later-adopt-a-newer-sbb-release">What
+happens if I modify the source and later adopt a newer SBB release?</h2>
+<p>Local changes to <code>doc_ep.c</code> or <code>doc_ep.h</code>
+become modifications to the reusable SBB layer and can overlap changes
+in a future release.</p>
+<p>To reduce upgrade conflicts:</p>
+<ul>
+<li>Keep terminal messages, result presentation, and one-run demo
+sequencing in <code>doc_example_app.*</code>.</li>
+<li>Keep DOC event selection, comparison configuration, and callback
+configuration in the generated FSP project when those are configuration
+concerns.</li>
+<li>Keep reusable-source changes focused and record why they are
+needed.</li>
+<li>Keep product-specific LED behavior separate from generic DOC
+operations where practical.</li>
+<li>Keep generated FSP configuration separate from hand-maintained SBB
+source.</li>
+<li>When adopting a newer release, compare the new <code>doc_ep.c</code>
+and <code>doc_ep.h</code> with the locally modified versions before
+carrying customizations forward.</li>
+<li>Revalidate configured event selection, comparison/arithmetic
+operands, callback behavior, LED polarity, and application
+synchronization after integration.</li>
+</ul>
+<p>The supplied files do not define an automated migration or
+compatibility mechanism for later SBB releases. Compatibility must
+therefore be validated by the integrating project.</p>
+<h2 id="recommended-reading-order">Recommended reading order</h2>
+<ol type="1">
+<li><strong><code>doc_ep.h</code></strong> to understand the public
+interface, predefined values, callback flag, and LED-level
+selection.</li>
+<li><strong><code>doc_ep.c</code></strong> to see the DOC wrappers and
+callback implementation.</li>
+<li><strong><code>doc_example_app.c</code></strong> to understand how
+<code>g_doc_cfg.event</code> selects the demonstration flow and how
+success is reported.</li>
+<li><strong><code>doc_example_app.h</code></strong> to review the
+application entry point and SBB description.</li>
+<li><strong><code>readme.txt</code></strong> for the validated board
+list, FPB-RA2E3 setup, terminal settings, and advanced-use
+reference.</li>
+</ol>
+</body>
+</html>
